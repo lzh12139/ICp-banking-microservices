@@ -11,17 +11,17 @@ var url_api_devloper_portal = "https://api.us.apiconnect.ibmcloud.com/spbodieusi
 
 
 // Your API ClientID
-var IBM_CLIENT_ID = "YOUR_CLIENT_ID_HERE";
+var IBM_CLIENT_ID = "111825d6-9923-4bf8-9c23-973e0bdadc41";
 
 
 // Your API ClientSecret
-var IBM_CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE";
+var IBM_CLIENT_SECRET = "wP4yA8aO7aL2tI6xY3fX5gT6tG3pE0eU7uQ3vX3oA7aK1oA4fK";
 
 
 /*
  * JQUERY ready
  */
-$(document).ready(function() {
+$(document).ready(function () {
 
 	// Customer Information API
 	$("#btnCustomerContract").click(customerContract);
@@ -132,29 +132,29 @@ function accountDetail() {
 function doGet(path, parameter) {
 
 	$.ajax({
-		type : 'GET',
-		headers : {
-			"x-ibm-client-id" : IBM_CLIENT_ID,
-			"x-ibm-client-secret" : IBM_CLIENT_SECRET
+		type: 'GET',
+		headers: {
+			"x-ibm-client-id": IBM_CLIENT_ID,
+			"x-ibm-client-secret": IBM_CLIENT_SECRET
 		},
-		async : true,
-		crossDomain : true,
-		cache : false,
-		url : url_api_devloper_portal + path + parameter,
-		contentType : "application/json",
-		beforeSend: function() { $('#myPleaseWait').modal('show'); },
-		success : function(data) {
+		async: true,
+		crossDomain: true,
+		cache: false,
+		url: url_api_devloper_portal + path + parameter,
+		contentType: "application/json",
+		beforeSend: function () { $('#myPleaseWait').modal('show'); },
+		success: function (data) {
 			var jsonPretty = JSON.stringify(data, null, 4);
 			$("#result").text(jsonPretty);
 		},
-		error : function(xhr, status, error) {
+		error: function (xhr, status, error) {
 			$("#result").text(xhr.responseText);
 		},
-		complete : function() {
+		complete: function () {
 			$('#myPleaseWait').modal('hide');
 			console.log("complete function GET");
 		}
-       
+
 	});
 
 }
